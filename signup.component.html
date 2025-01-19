@@ -1,0 +1,144 @@
+<!-- 
+<div class="container mt-5">
+  
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card">
+          <div class="card-header text-center ">
+            <h4 class="">Signup</h4>
+          </div>
+          <div class="card-body " >
+            <form [formGroup]="reactivForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text"  name="userName" formControlName="userName"   minlength="5"  required  class="form-control" id="name" placeholder="Enter your name">
+               
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" name="email" formControlName="email"     required minlength="9"  email class="form-control" id="email" placeholder="Enter your email">
+               
+              </div>
+              <div class="mb-3">
+                <label for="password"  class="form-label">Password</label>
+                <input type="password"   pattern="^\S+$" required minlength="8"  name="password"  formControlName="password"    class="form-control" id="password" placeholder="Enter your password">
+                
+              </div>
+              
+              <div class="d-grid">
+                <button type="submit" (click)="onSubmit()"  class="btn btn-primary">Sign Up</button>
+                <!-- <button type="submit" (click)="onsubmit(signUP)" [disabled]="signUP.invalid" class="btn btn-primary">Sign Up</button> -->
+                <!-- <p class="text-danger" >{{errorSign}}</p> -->
+              <!-- </div>
+            </form>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="hero_area" style="width: 100%;">
+ <app-navbar></app-navbar>
+  <section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form [formGroup]="reactivForm" >
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+              <p class="lead fw-normal mb-0 me-3">Sign Up</p>
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+  
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+  
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-linkedin-in"></i>
+              </button>
+            </div>
+  
+          
+            <!-- username -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <label class="form-label" for="form3Example3">Enter Uname</label>
+              <!-- <input type="userName" id="form3Example3" class="form-control form-control-lg"   formControlName="UserName" placeholder="Enter username" /> -->
+              <input type="text" id="userName" formControlName="userName" class="form-control form-control-lg" placeholder="Enter username" />
+            <span *ngIf="reactivForm.get('userName')?.touched && reactivForm.get('userName')?.hasError('required')" class="text-danger">
+              Username is required
+            </span>
+            <span *ngIf="reactivForm.get('userName')?.hasError('minlength')" class="text-danger">
+              Minimum length is 5
+            </span>
+            </div>
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <label class="form-label" for="form3Example3">Email address</label>
+              <input type="email" id="email" formControlName="email" 
+                   class="form-control form-control-lg" placeholder="Enter valid email" />
+            <div *ngIf="reactivForm.get('email')?.touched && reactivForm.get('email')?.invalid" 
+                 class="text-danger">
+              <div *ngIf="reactivForm.get('email')?.errors?.['required']">
+                Email is required.
+              </div>
+              <div *ngIf="reactivForm.get('email')?.errors?.['email']">
+                Please enter a valid email address.
+              </div>
+              <div *ngIf="reactivForm.get('email')?.errors?.['minlength']">
+                Email must be at least 9 characters long.
+              </div>
+              
+            </div>
+  
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+              <label class="form-label" for="form3Example4">Password</label>
+             <input type="password" id="password" formControlName="password" 
+                   class="form-control form-control-lg" placeholder="Enter password" />
+            <div *ngIf="reactivForm.get('password')?.touched && reactivForm.get('password')?.invalid" 
+                 class="text-danger">
+              <div *ngIf="reactivForm.get('password')?.errors?.['required']">
+                Password is required.
+              </div>
+              <div *ngIf="reactivForm.get('password')?.errors?.['minlength']">
+                Password must be at least 8 characters long.
+              </div>
+              <div *ngIf="reactivForm.get('password')?.errors?.['pattern']">
+                Password cannot contain spaces.
+              </div>
+             
+            </div>
+  
+            <div class="d-flex justify-content-between align-items-center">
+              
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="onSubmit()">SignUp</button>
+              <p class="small fw-bold mt-3">
+                Already have an account? 
+                <a routerLink="/login" class="link-danger">Login</a>
+              </p>
+            </div>
+            
+            </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-dark">
+      Copyright
+       <div class="text-white mb-3 mb-md-0">
+        Copyright © 2020. All rights reserved.
+      </div> 
+      
+    </div>
+  </section>
+  </div>

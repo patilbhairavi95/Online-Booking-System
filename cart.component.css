@@ -1,0 +1,102 @@
+/* General styles for the hero_area and cart container */
+.hero_area {
+    width: 100%;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  .cart-container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  /* Booking Info Display */
+  .cart-container p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .cart-container p strong {
+    color: #000;
+  }
+  
+  .cart-container hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 15px 0;
+  }
+  
+  /* Button styling */
+  .cart-container button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .cart-container button:hover {
+    background-color: #218838;
+  }
+  
+  /* Responsive styling */
+  
+  /* For mobile devices */
+  @media (max-width: 600px) {
+    .cart-container {
+      padding: 15px;
+      margin: 10px;
+    }
+  
+    .cart-container h2 {
+      font-size: 22px;
+    }
+  
+    .cart-container p {
+      font-size: 14px;
+    }
+  
+    .cart-container button {
+      padding: 10px;
+      font-size: 15px;
+    }
+  }
+  
+  /* For tablets */
+  @media (min-width: 601px) and (max-width: 900px) {
+    .cart-container {
+      padding: 20px;
+    }
+  
+    .cart-container h2 {
+      font-size: 24px;
+    }
+  
+    .cart-container p {
+      font-size: 15px;
+    }
+  
+    .cart-container button {
+      padding: 12px;
+      font-size: 16px;
+    }
+  }
+  

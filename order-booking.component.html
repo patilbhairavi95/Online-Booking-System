@@ -1,0 +1,14 @@
+<div class="container mt-5">
+    <h2>Order Summary</h2>
+    <p><strong>Customer Name:</strong> {{ booking.customerName }}</p>
+    <p><strong>Pincode:</strong> {{ booking.pincode }}</p>
+    <p><strong>Area:</strong> {{ booking.area }}</p>
+    <p><strong>Phone Number:</strong> {{ booking.phoneNo }}</p>
+    <p><strong>Service Price:</strong> {{ booking.servicePrice }}</p>
+    <p><strong>Count:</strong> {{ booking.count }}</p>
+    <p><strong>Total Price:</strong> {{ booking.totalPrice }}</p>
+    <p><strong>Date & Time:</strong> {{ booking.serviceDate }}</p>
+    
+    <button (click)="proceedToPayment()" class="btn btn-primary">Proceed to Payment</button>
+  </div>
+  

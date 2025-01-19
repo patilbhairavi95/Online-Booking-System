@@ -1,0 +1,10 @@
+body {
+    background-color: #f8f9fa; /* Light background for contrast */
+}
+.container {
+    margin-top: 50px;
+    max-width: 600px; /* Centering the form */
+}
+.form-title {
+    margin-bottom: 30px;
+}

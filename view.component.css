@@ -1,0 +1,21 @@
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.nav-link {
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav-link:hover {
+    color: #ffcc00; /* Change color on hover */
+}
+
+.navbar-brand {
+    font-weight: bold; /* Bold branding */
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.5rem; /* Larger font for smaller screens */
+    }
+}

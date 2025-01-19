@@ -1,0 +1,45 @@
+/* Booking Form Container */
+.booking-container {
+    background-color: #f8f9fa; /* Light grey background */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading Styles */
+  .booking-container h2,
+  .booking-container h4 {
+    color: #343a40; /* Dark grey text */
+  }
+  
+  /* Form Control Styles */
+  .booking-container .form-control {
+    border-radius: 5px;
+  }
+  
+  /* Static Price Fields */
+  .booking-container h5.form-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    color: #495057; /* Bootstrap's text-secondary */
+  }
+  
+  /* Submit Button Hover Effect */
+  .booking-container .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3;
+  }
+  
+  /* Success Alert Styles */
+  .booking-container .alert-success {
+    border-radius: 5px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 576px) {
+    .booking-container {
+      padding: 2rem;
+    }
+  }
+  

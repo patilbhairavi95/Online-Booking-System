@@ -1,0 +1,54 @@
+
+<div class="nav">
+  <app-navbar></app-navbar>
+</div>
+<div class="Both">
+   <div class="sidebar">
+    <app-sidebar></app-sidebar>   
+   
+   <div class="mainbody">
+<div class="container mb-4 ">
+    <h2 class="text-center mb-4 text-danger">Add Product</h2>
+
+    <form [formGroup]="reactiveForm" >
+      <!-- Service Name -->
+      <div class="mb-3">
+        <label for="serviceName"  class="form-label text-danger">Service Name</label>
+        <input type="text" class="form-control"  formControlName="serviceName"     id="serviceName" placeholder="Enter Service Name" required>
+      </div>
+
+      <!-- Service  Price -->
+      <div class="mb-3">
+        <label for="servicePrice" class="form-label  text-danger" >Service Price</label>
+        <input type="number" class="form-control"  formControlName="servicePrice"   id="ServicePrice" placeholder="Enter Service price" required>
+      </div>
+
+      <!-- Service Image -->
+      <div class="mb-3">
+        <label for="ServiceImage" class="form-label text-danger">Service Image</label>
+        <input type="text" class="form-control"   formControlName="serviceImage" id="ServiceImage" required>
+      </div>
+     <!--Service Desc-->
+      <div class="mb-3">
+        <label for="serviceDescription" class="form-label form-label text-danger">Description</label>
+        <textarea class="form-control" id="serviceDescription" rows="4"   formControlName="serviceDescription" placeholder="Enter service description" required></textarea>
+    </div>
+
+
+      <!-- Service Category -->
+      <div class="mb-3">
+        <label for="ServiceCategory" class="form-label text-danger">ServiceCategory</label>
+        <select class="form-select"   formControlName="serviceCategory" id="ServiceCategory" required>
+          <option selected disabled>Choose category</option>
+          <option value="electronics">Electronics</option>
+          <option value="home">Home & Living</option>
+          <option value="books">cars</option>
+          <option value="sports">Sports</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button  class="btn btn-primary" (click)="addService()" >Add Service</button>
+      </div>
+    </form></div></div>

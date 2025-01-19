@@ -1,0 +1,240 @@
+ <!-- <div class="container mt-5">
+  
+  <h2  >Booking Service {{booking.serviceName}}</h2>
+  <h2>{{booking.userName}}</h2>
+    <form (ngSubmit)="onSubmit()" #bookingForm="ngForm" >
+      <div class="form-group" href="index.html">
+         
+        <label for="customerName">Customer Name</label>
+        <input type="text" id="customerName" class="form-control" required [(ngModel)]="booking.customerName" name="customerName">
+      
+      </div>
+  
+      <div class="form-group">
+        <label for="pincode">Pincode</label>
+        <input type="text" id="pincode" class="form-control" required [(ngModel)]="booking.pincode" name="pincode">
+      </div>
+  
+      <div class="form-group">
+        <label for="area">Area</label>
+        <input type="text" id="area" class="form-control" required [(ngModel)]="booking.area" name="area">
+      </div>
+  
+      <div class="form-group">
+        <label for="phoneNo">Phone Number</label>
+        <input type="tel" id="phoneNo" class="form-control" required [(ngModel)]="booking.phoneNo" name="phoneNo">
+      </div>
+  
+      <div class="form-group" >
+        <label for="price">Price</label>
+        <!-- <input type="number" id="price" class="form-control" required [(ngModel)]="booking.price" name="price"> -->
+         <!-- <h1>{{booking.servicePrice}}</h1> -->
+        
+      <!-- </div> -->
+  
+      <!-- <div class="form-group">
+        <label for="totalPrice">Total Price</label> -->
+        <!-- <input type="number" id="totalPrice" class="form-control" required [(ngModel)]="booking.totalPrice" name="totalPrice"> -->
+          <!-- <h1>{{booking.servicePrice*booking.count}}</h1>
+      </div>
+      <div class="form-group">
+        <label for="totalServices">count</label>
+        <input type="number" id="count" class="form-control" required [(ngModel)]="booking.count" name="count">{{booking.count}}
+      </div>
+      <div class="form-group">
+        <label for="phoneNo">Date & Time</label>
+        <input type="datetime" id="phoneNo" class="form-control" required [(ngModel)]="booking.serviceDate" name="serviceDate">
+      </div>
+     <br>
+      <br>
+      <button type="submit" class="btn btn-primary">Submit Booking</button>
+    </form>
+    <div *ngIf="isBookingSubmitted">
+      <h3>Booking submitted successfully!</h3>
+      <button (click)="gocart()" class="btn btn-success">Go Cart</button>
+    </div>
+    </div> -
+     -->
+    
+  <!-- {{booking | json}}   -->
+  <div class="hero_area" style="width: 100%;">
+    <!-- header section strats -->
+    <app-navbar></app-navbar>
+    <!-- end header section -->
+    <!-- slider section -->
+    <div class="container mt-5 p-5 rounded shadow booking-container">
+      <h2 class="text-center mb-3">Booking Service: {{ booking.serviceName }}</h2>
+      <h4 class="text-center mb-4">{{ booking.userName }}</h4>
+      
+      <form (ngSubmit)="onSubmit()" #bookingForm="ngForm" novalidate>
+        <div class="row">
+          <!-- Customer Name -->
+          <div class="form-group col-md-6 mb-3">
+            <label for="customerName">Customer Name</label>
+            <input
+              type="text"
+              id="customerName"
+              class="form-control"
+              required
+              minlength="3"
+              [(ngModel)]="booking.customerName"
+              name="customerName"
+              #customerName="ngModel"
+              placeholder="Enter your name"
+              [class.is-invalid]="customerName.invalid && (customerName.dirty || customerName.touched)"
+            />
+            <!-- Validation Messages -->
+            <div *ngIf="customerName.invalid && (customerName.dirty || customerName.touched)" class="invalid-feedback">
+              <small *ngIf="customerName.errors?.['required']">Customer Name is required.</small>
+              <small *ngIf="customerName.errors?.['minlength']">Customer Name must be at least 3 characters long.</small>
+            </div>
+          </div>
+    
+          <!-- Pincode -->
+          <div class="form-group col-md-6 mb-3">
+            <label for="pincode">Pincode</label>
+            <input
+              type="text"
+              id="pincode"
+              class="form-control"
+              required
+              pattern="^[0-9]{6}$"
+              [(ngModel)]="booking.pincode"
+              name="pincode"
+              #pincode="ngModel"
+              placeholder="Enter your area pincode"
+              [class.is-invalid]="pincode.invalid && (pincode.dirty || pincode.touched)"
+            />
+            <!-- Validation Messages -->
+            <div *ngIf="pincode.invalid && (pincode.dirty || pincode.touched)" class="invalid-feedback">
+              <small *ngIf="pincode.errors?.['required']">Pincode is required.</small>
+              <small *ngIf="pincode.errors?.['pattern']">Pincode must be a 6-digit number.</small>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <!-- Area -->
+          <div class="form-group col-md-6 mb-3">
+            <label for="area">Area</label>
+            <input
+              type="text"
+              id="area"
+              class="form-control"
+              required
+              [(ngModel)]="booking.area"
+              name="area"
+              #area="ngModel"
+              placeholder="Enter your area"
+              [class.is-invalid]="area.invalid && (area.dirty || area.touched)"
+            />
+            <!-- Validation Messages -->
+            <div *ngIf="area.invalid && (area.dirty || area.touched)" class="invalid-feedback">
+              <small *ngIf="area.errors?.['required']">Area is required.</small>
+            </div>
+          </div>
+    
+          <!-- Phone Number -->
+          <div class="form-group col-md-6 mb-3">
+            <label for="phoneNo">Phone Number</label>
+            <input
+              type="tel"
+              id="phoneNo"
+              class="form-control"
+              required
+              pattern="^[0-9]{10}$"
+              [(ngModel)]="booking.phoneNo"
+              name="phoneNo"
+              #phoneNo="ngModel"
+              placeholder="Enter your phone number"
+              [class.is-invalid]="phoneNo.invalid && (phoneNo.dirty || phoneNo.touched)"
+            />
+            <!-- Validation Messages -->
+            <div *ngIf="phoneNo.invalid && (phoneNo.dirty || phoneNo.touched)" class="invalid-feedback">
+              <small *ngIf="phoneNo.errors?.['required']">Phone Number is required.</small>
+              <small *ngIf="phoneNo.errors?.['pattern']">Phone Number must be a 10-digit number.</small>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <!-- Price (static) -->
+          <div class="form-group col-md-6 mb-3">
+            <label for="price">Price</label>
+            <h5 class="form-control bg-light">{{ booking.servicePrice }}</h5>
+          </div>
+    
+          <!-- Total Price (calculated) -->
+          <div class="form-group col-md-6 mb-3">
+            <label for="totalPrice">Total Price</label>
+            <h5 class="form-control bg-light">
+              {{ booking.servicePrice * booking.count }}
+            </h5>
+          </div>
+        </div>
+    
+        <div class="row">
+          <!-- Service Count -->
+          <div class="form-group col-md-6 mb-3">
+            <label for="count">Service Count</label>
+            <input
+              type="number"
+              id="count"
+              class="form-control"
+              required
+              min="1"
+              [(ngModel)]="booking.count"
+              name="count"
+              #count="ngModel"
+              placeholder="Number of services"
+              [class.is-invalid]="count.invalid && (count.dirty || count.touched)"
+            />
+            <!-- Validation Messages -->
+            <div *ngIf="count.invalid && (count.dirty || count.touched)" class="invalid-feedback">
+              <small *ngIf="count.errors?.['required']">Service Count is required.</small>
+              <small *ngIf="count.errors?.['min']">Service Count must be at least 1.</small>
+            </div>
+          </div>
+    
+          <!-- Date & Time -->
+          <div class="form-group col-md-6 mb-3">
+            <label for="serviceDate">Date & Time</label>
+            <input
+              type="datetime-local"
+              id="serviceDate"
+              class="form-control"
+              required
+              [(ngModel)]="booking.serviceDate"
+              name="serviceDate"
+              #serviceDate="ngModel"
+              [class.is-invalid]="serviceDate.invalid && (serviceDate.dirty || serviceDate.touched)"
+            />
+            <!-- Validation Messages -->
+            <div *ngIf="serviceDate.invalid && (serviceDate.dirty || serviceDate.touched)" class="invalid-feedback">
+              <small *ngIf="serviceDate.errors?.['required']">Date & Time is required.</small>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Submit Button -->
+        <div class="text-center mt-4">
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg"
+            [disabled]="bookingForm.invalid"
+          >
+            Submit Booking
+          </button>
+        </div>
+      </form>
+    
+      <!-- Success Message -->
+      <div *ngIf="isBookingSubmitted" class="alert alert-success mt-4 text-center">
+        <h3>Booking submitted successfully!</h3>
+        <button (click)="gocart()" class="btn btn-success mt-2">Go to Cart</button>
+      </div>
+    </div>
+    
+  </div>
+   
+ 

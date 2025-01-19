@@ -1,0 +1,27 @@
+<div class="hero_area" style="width: 100%;">
+  <div class="cart" style="width: 100%; display: flex;">
+
+    <div class="cart-container" *ngFor="let booking of booking">
+    <h2>Your Booking Info</h2>
+    <div >
+      <div>
+      <p><strong>service id:</strong> {{booking.serviceId }}</p>
+      <p><strong>customer id:</strong> {{booking.booking_Id}}</p>
+      <p><strong>UserName:</strong> {{booking.userName }}</p>
+      <p><strong>customaer Name:</strong> {{booking.customerName }}</p>
+      <p><strong>Service Name:</strong> {{ booking.serviceName}}</p>
+      <p><strong>service count:</strong> {{booking.count }}</p>
+      <p><strong>Price:</strong> {{booking.servicePrice }}</p>
+      <p><strong>Total Price:</strong> {{ booking.totalPrice }}</p>
+    </div>
+     
+      
+      <hr />
+    </div>
+    
+  
+      <button (click)="proceedToPayment()">Proceed to Payment</button>
+    
+  </div>
+</div>
+  
